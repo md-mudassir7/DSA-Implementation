@@ -12,7 +12,7 @@ public:
         top = -1;
     }
     void push(int value){
-        if(top>=capacity-1){
+        if(isFull()){
             cout<<"Stack Overflow\n";
             return;
         }
@@ -23,7 +23,7 @@ public:
         }
     }
     int pop(){
-        if(top<0)
+        if(isEmpty())
         {
             cout<<"Stack Underflow\n";
             return 0;
