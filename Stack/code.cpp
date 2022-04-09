@@ -1,16 +1,18 @@
 #include<bits/stdc++.h>
-#define MAX 100
 using namespace std;
 class Stack{
 private:
     int top;
-    int arr[MAX];
+    int* arr;
+    int capacity;
 public:
-    Stack(){
+    Stack(int size){
+        arr = new int[size];
+        capacity = size;
         top = -1;
     }
     void push(int value){
-        if(top>=MAX-1){
+        if(top>=capacity-1){
             cout<<"Stack Overflow\n";
             return;
         }
@@ -46,7 +48,7 @@ public:
         return top<0;
     }
     bool isFull(){
-        return top==MAX-1;
+        return top==capacity-1;
     }
     void printStack(Stack s){
         Stack temp = s;
@@ -59,7 +61,7 @@ public:
     }
 };
 int main(){
-    Stack s;
+    Stack s(100);
     s.push(10);
     s.push(20);
     s.push(30);
