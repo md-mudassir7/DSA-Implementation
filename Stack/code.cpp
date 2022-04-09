@@ -14,7 +14,7 @@ public:
     void push(int value){
         if(isFull()){
             cout<<"Stack Overflow\n";
-            return;
+            exit(EXIT_FAILURE);
         }
         else{
             top++;
@@ -26,7 +26,7 @@ public:
         if(isEmpty())
         {
             cout<<"Stack Underflow\n";
-            return 0;
+            exit(EXIT_FAILURE);
         }
         else{
             int popped = arr[top];
@@ -37,7 +37,7 @@ public:
     int peek(){
         if (top < 0) {
             cout << "Stack is Empty";
-            return 0;
+            exit(EXIT_FAILURE);
         }
         else {
             int x = arr[top];
