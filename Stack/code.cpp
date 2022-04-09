@@ -9,9 +9,6 @@ public:
     Stack(){
         top = -1;
     }
-    ~Stack(){
-        delete[] arr;
-    }
     void push(int value){
         if(top>=MAX-1){
             cout<<"Stack Overflow\n";
