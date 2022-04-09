@@ -30,17 +30,36 @@ public:
         return;
     }
     void deleteNodeAtPosition(int position){
-        if(head->data==position){
-            head = head->next;
-            return;
+        if (head == NULL){
+            // if list is empty do nothing
+            cout<<"List is Empty"<<endl;
         }
-        Node* temp = head;
-        while(temp->next->data!=position){
-            temp = temp->next;
+        else{
+            
+            if (position == 0) {
+                Node *temp = head;
+                // if p==0, perform delete at beginning
+                cout<<"Element Deleted: "<<head->data<<endl;
+                head = head->next;
+                delete(temp);
+            }
+            else{
+                // if p > 0
+                // set ptr to pth Node and temp to (p-1)th Node
+                Node* temp = head;
+                position--; //Since to delte a node we wanna be at a node previous to it
+                while(position>0){
+                    position--;
+                    temp = temp->next;
+                }
+                cout<<"Element Deleted: "<<temp->next->data<<endl;
+                // set next of (p-1)th Node to next of pth Node
+                temp->next = temp->next->next;
+                // free pth Node
+                free(temp->next);
+            }
         }
-        temp->next = temp->next->next;
-        delete(temp->next);
-        return;
+
     }
     void printList(){
         Node* temp = head;
