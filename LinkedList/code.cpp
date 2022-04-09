@@ -59,7 +59,6 @@ public:
                 free(temp->next);
             }
         }
-
     }
     void printList(){
         Node* temp = head;
