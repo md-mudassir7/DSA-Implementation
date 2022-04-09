@@ -16,6 +16,9 @@ public:
     LinkedList(){
         head = NULL;
     }
+    ~LinkedList() {
+        delete head;
+    }
     void insert(int data){
         Node* toInsert = new Node(data);
         if(head==NULL){
